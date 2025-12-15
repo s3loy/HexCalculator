@@ -6,6 +6,8 @@
 #include <QStack>
 #include <QtMath>
 
+#include <cmath>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -108,7 +110,7 @@ void MainWindow::onAnyButtonClicked(){
 
     QString t = b->text();
 
-    static const QSet<QString> ops {"+","-","*","/","(",")"};
+    static const QSet<QString> ops {"+","-","*","/","%","^","(",")"};
     if (ops.contains(t)){
         insertToExpr(" "+t+" ");
     } else {
@@ -162,7 +164,7 @@ QString MainWindow::normalizeExpression(const QString &in) const{
     s.replace("x","*");
     s.replace("÷","/");
 
-    s.replace(QRegularExpression("\\s*([+\\-*/()])\\s*"), " \\1 ");
+    s.replace(QRegularExpression("\\s*([+\\-*/()%^])\\s*"), " \\1 ");
     s.replace(QRegularExpression("\\s+"), " ");
     s = s.trimmed();
 
@@ -196,13 +198,14 @@ void MainWindow::computeAndShow(){
 }
 
 int MainWindow::precedence(const QString &op) const{
-    if (op == "*" || op == "/") return 2;
+    if (op == "^") return 3;
+    if (op == "*" || op == "/" || op == "%") return 2;
     if (op == "+" || op == "-") return 1;
     return 0;
 }
 
 bool MainWindow::isLeftAssociative(const QString &op) const{
-    Q_UNUSED(op);
+    if (op == "^") return false;  // 幂运算是右结合
     return true; // + - * / 都是左结合
 }
 
@@ -221,24 +224,25 @@ bool MainWindow::tokenize(const QString &expr, QVector<Token> &outTokens, QStrin
     while (i < expr.size()) {
         const QChar c = expr[i];
 
-        if (c.isSpace()) { i++; continue; }
-
+        if (c.isSpace()) {
+            i++;
+            continue;
+        }
         if (c == '(') {
             outTokens.push_back({TokType::LParen, "("});
             i++;
             continue;
         }
-        if (c == ')') { outTokens.push_back({TokType::RParen, ")"});
+        if (c == ')') {
+            outTokens.push_back({TokType::RParen, ")"});
             i++;
             continue;
         }
-
-        if (c == '+' || c == '-' || c == '*' || c == '/') {
+        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^') {
             outTokens.push_back({TokType::Op, QString(c)});
             i++;
             continue;
         }
-
         if (isHex(c) || c == '.') {
             int start = i;
             bool seenDot = false;
@@ -337,6 +341,29 @@ bool MainWindow::toRpn(const QVector<Token> &tokens, QVector<Token> &outRpn, QSt
 
     return true;
 }
+static long double fastPow(long double base, long long exp) {
+    bool negExp = exp < 0;
+    if (negExp) exp = -exp;
+
+    long double result = 1.0L;
+    while (exp > 0) {
+        if (exp & 1) {          // 二进制最低位为1
+            result *= base;
+        }
+        base *= base;           // base 自乘
+        exp >>= 1;              // 右移一位
+    }
+    return negExp ? (1.0L / result) : result;
+}
+
+// 通用幂运算 - 整数指数用快速幂，非整数用标准库
+static long double safePow(long double a, long double b) {
+    long long intExp = static_cast<long long>(b);
+    if (static_cast<long double>(intExp) == b && std::abs(intExp) < 64) {
+        return fastPow(a, intExp);  // 整数快速幂
+    }
+    return std::powl(a, b);         // 非整数标准库
+}
 
 bool MainWindow::evalRpn(const QVector<Token> &rpn, long double &outValue, QString &err) const{
     QStack<long double> st;
@@ -367,6 +394,25 @@ bool MainWindow::evalRpn(const QVector<Token> &rpn, long double &outValue, QStri
                     return false;
                 }
                 r = a / b;
+            } else if (t.text == "%"){
+                if (b ==0){
+                    err = "modulo by zero";
+                    return false;
+                }
+                r = std::fmodl(a,b);
+            } else if (t.text == "^"){
+                if (a == 0 && b <0){
+                    err = "zero to negative power";
+                    return false;
+                }
+                if (a < 0){
+                    long long intExp = static_cast<long long>(b);
+                    if (static_cast<long double>(intExp) != b){
+                        err = "negative base with non-integer exponent";
+                        return false;
+                    }
+                }
+                r = safePow(a , b);
             } else {
                 err = "unknown operator " + t.text;
                 return false;
