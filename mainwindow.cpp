@@ -110,7 +110,7 @@ void MainWindow::onAnyButtonClicked(){
 
     QString t = b->text();
 
-    static const QSet<QString> ops {"+","-","*","/","%","^","(",")"};
+    static const QSet<QString> ops {"+","-","*","/","%","^","(",")","!"};
     if (ops.contains(t)){
         insertToExpr(" "+t+" ");
     } else {
@@ -164,7 +164,8 @@ QString MainWindow::normalizeExpression(const QString &in) const{
     s.replace("x","*");
     s.replace("÷","/");
 
-    s.replace(QRegularExpression("\\s*([+\\-*/()%^])\\s*"), " \\1 ");
+    static const QRegularExpression opRe("\\s*([+\\-*/()%^!])\\s*");
+    s.replace(opRe, " \\1 ");
     s.replace(QRegularExpression("\\s+"), " ");
     s = s.trimmed();
 
@@ -198,6 +199,7 @@ void MainWindow::computeAndShow(){
 }
 
 int MainWindow::precedence(const QString &op) const{
+    if (op == "!") return 4;
     if (op == "^") return 3;
     if (op == "*" || op == "/" || op == "%") return 2;
     if (op == "+" || op == "-") return 1;
@@ -240,6 +242,11 @@ bool MainWindow::tokenize(const QString &expr, QVector<Token> &outTokens, QStrin
         }
         if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^') {
             outTokens.push_back({TokType::Op, QString(c)});
+            i++;
+            continue;
+        }
+        if (c == '!') {
+            outTokens.push_back({TokType::UnaryPostOp, QString(c)});
             i++;
             continue;
         }
@@ -306,6 +313,10 @@ bool MainWindow::toRpn(const QVector<Token> &tokens, QVector<Token> &outRpn, QSt
             opStack.push(t);
             continue;
         }
+        if (t.type == TokType::UnaryPostOp) {
+            outRpn.push_back(t);
+            continue;
+        }
 
         if (t.type == TokType::LParen) {
             opStack.push(t);
@@ -365,6 +376,16 @@ static long double safePow(long double a, long double b) {
     return std::powl(a, b);         // 非整数标准库
 }
 
+static long double factorial(long long n) {
+    if (n < 0) return std::numeric_limits<long double>::quiet_NaN();
+    if (n <= 1) return 1.0L;
+    long double result = 1.0L;
+    for (long long i = 2; i <= n; ++i) {
+        result *= i;
+    }
+    return result;
+}
+
 bool MainWindow::evalRpn(const QVector<Token> &rpn, long double &outValue, QString &err) const{
     QStack<long double> st;
 
@@ -419,6 +440,31 @@ bool MainWindow::evalRpn(const QVector<Token> &rpn, long double &outValue, QStri
             }
 
             st.push(r);
+            continue;
+        }
+        if (t.type == TokType::UnaryPostOp) {
+            if (st.size() < 1) {
+                err = "not enough operands for factorial";
+                return false;
+            }
+            const long double a = st.pop();
+
+            if (t. text == "!") {
+                if (a < 0) {
+                    err = "factorial of negative number";
+                    return false;
+                }
+                long long intVal = static_cast<long long>(a);
+                if (static_cast<long double>(intVal) != a) {
+                    err = "factorial requires integer";
+                    return false;
+                }
+                if (intVal > 1754) {
+                    err = "factorial overflow";
+                    return false;
+                }
+                st.push(factorial(intVal));
+            }
             continue;
         }
 

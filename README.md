@@ -24,7 +24,7 @@ Programming Coursework
 - [x] 取模 %
 - [x] 平方 ^2
 - [x] 幂运算 ^n
-- [ ] 阶乘 !
+- [x] 阶乘 !
 - [ ] 左移位 <<
 - [ ] 右移位 >>
 - [ ] 按位与 &
@@ -40,6 +40,7 @@ Programming Coursework
 enum class TokType {
     Number,     // hexadecimal
     Op,         // operation
+    UnaryPostOp,//
     LParen,     // (
     RParen      // )
 };

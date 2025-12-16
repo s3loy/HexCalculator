@@ -24,6 +24,7 @@ private:
     enum class TokType {
         Number,
         Op,
+        UnaryPostOp,
         LParen,
         RParen
     };
