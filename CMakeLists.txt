@@ -11,6 +11,8 @@ qt_add_executable(HexCalculator
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    calculatorcore.h
+    calculatorcore.cpp
 )
 
 target_link_libraries(HexCalculator
