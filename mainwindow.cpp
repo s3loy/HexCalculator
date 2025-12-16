@@ -7,6 +7,7 @@
 #include <QtMath>
 
 #include <cmath>
+#include <limits>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -163,6 +164,9 @@ QString MainWindow::normalizeExpression(const QString &in) const{
 
     s.replace("x","*");
     s.replace("÷","/");
+    s.replace("！", "!");
+    s.replace("（", "(");
+    s.replace("）", ")");
 
     static const QRegularExpression opRe("\\s*([+\\-*/()%^!])\\s*");
     s.replace(opRe, " \\1 ");
@@ -191,10 +195,14 @@ void MainWindow::computeAndShow(){
 
     long double v = 0;
     if (!evalRpn(rpn, v, err)) {
+        if (err.isEmpty()) err = "Unknown Error during evaluation";
         ui->resultLineEdit->setText("ERR: " + err);
         return;
     }
-
+    if (std::isinf(v)) {
+        ui->resultLineEdit->setText("ERR: Factorial Overflow");
+        return;
+    }
     ui->resultLineEdit->setText(toHexFloatString(v, 12));
 }
 
@@ -378,10 +386,14 @@ static long double safePow(long double a, long double b) {
 
 static long double factorial(long long n) {
     if (n < 0) return std::numeric_limits<long double>::quiet_NaN();
+    if (n > 22) return std::numeric_limits<long double>::infinity();
     if (n <= 1) return 1.0L;
     long double result = 1.0L;
-    for (long long i = 2; i <= n; ++i) {
+    for (long long i = 1; i <= n; ++i) {
         result *= i;
+        if (std::isinf(result) || result <= 0) {
+            return std::numeric_limits<long double>::infinity();
+        }
     }
     return result;
 }
@@ -459,7 +471,7 @@ bool MainWindow::evalRpn(const QVector<Token> &rpn, long double &outValue, QStri
                     err = "factorial requires integer";
                     return false;
                 }
-                if (intVal > 1754) {
+                if (intVal > 22) {
                     err = "factorial overflow";
                     return false;
                 }
@@ -530,11 +542,17 @@ bool MainWindow::parseHexFloat(const QString &s, long double &out, QString &err)
 }
 
 QString MainWindow::toHexFloatString(long double v, int fracDigits) const{
-    if (qIsNaN(static_cast<double>(v))) return "NAN";
-    if (qIsInf(static_cast<double>(v))) return (v > 0 ? "INF" : "-INF");
+    if (std::isnan(v)) return "NAN";
+    if (std::isinf(v)) return (v > 0 ? "INF" : "-INF");
 
     bool neg = v < 0;
     if (neg) v = -v;
+
+    if (v > static_cast<long double>(std::numeric_limits<quint64>::max())) {
+        QString s = QString::number(static_cast<double>(v), 'g', 15);
+        if (neg) s.prepend('-');
+        return s;
+    }
 
     quint64 intPart = static_cast<quint64>(v);
     long double frac = v - static_cast<long double>(intPart);
@@ -546,6 +564,10 @@ QString MainWindow::toHexFloatString(long double v, int fracDigits) const{
     for (int i = 0; i < fracDigits; i++) {
         frac *= 16;
         int digit = static_cast<int>(frac);
+
+        if (digit < 0) digit = 0;
+        if (digit > 15) digit = 15;
+
         frac -= digit;
         fracStr += QString("0123456789ABCDEF")[digit];
         if (frac == 0) break;
