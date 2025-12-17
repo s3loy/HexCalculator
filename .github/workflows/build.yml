@@ -12,19 +12,22 @@ jobs:
   build-windows:
     name: Windows Release
     runs-on: windows-latest
-    
+
     steps:
       - uses: actions/checkout@v4
- 
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
           version: '6.5.3'
           host: 'windows'
-          arch: 'win64_mingw'
+          arch: 'win64_msvc2019_64'
+
+      - name: Set up MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
 
       - name: Configure CMake
-        run: cmake -B build -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%QT_ROOT_DIR%
+        run: cmake -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%QT_ROOT_DIR%
 
       - name: Build
         run: cmake --build build --config Release
