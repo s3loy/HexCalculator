@@ -57,7 +57,7 @@ long double CalculatorCore::safePow(long double a, long double b){
     return std::powl(a, b);         // 非整数标准库
 }
 
-long double CalculatorCore::factorial(long long n) {
+long double CalculatorCore::factorial(long long n){
     if (n < 0) return std::numeric_limits<long double>::quiet_NaN();
     if (n > 22) return std::numeric_limits<long double>::infinity();
     if (n <= 1) return 1.0L;
@@ -82,14 +82,14 @@ bool CalculatorCore::parseHexFloat(const QString &s, long double &out, QString &
     const QStringList parts = t.split('.', Qt::KeepEmptyParts);
     if (parts.size() > 2) { err = "invalid hex float"; return false; }
 
-    auto hexDigit = [](QChar c) -> int {
+    auto hexDigit = [](QChar c) -> int{
         if (c.isDigit()) return c.unicode() - '0';
         if (c >= 'A' && c <= 'F') return 10 + (c.unicode() - 'A');
         return -1;
     };
 
     long double intPart = 0;
-    if (!parts[0].isEmpty()) {
+    if (!parts[0].isEmpty()){
         for (QChar c : parts[0]) {
             int d = hexDigit(c);
             if (d < 0) {
@@ -101,7 +101,7 @@ bool CalculatorCore::parseHexFloat(const QString &s, long double &out, QString &
     }
 
     long double fracPart = 0;
-    if (parts.size() == 2 && !parts[1].isEmpty()) {
+    if (parts.size() == 2 && !parts[1].isEmpty()){
         long double base = 16;
         for (QChar c : parts[1]) {
             int d = hexDigit(c);
@@ -126,7 +126,7 @@ QString CalculatorCore::toHexFloatString(long double v, int fracDigits){
     bool neg = v < 0;
     if (neg) v = -v;
 
-    if (v > static_cast<long double>(std::numeric_limits<quint64>::max())) {
+    if (v > static_cast<long double>(std::numeric_limits<quint64>::max())){
         QString s = QString::number(static_cast<double>(v), 'g', 15);
         if (neg) s.prepend('-');
         return s;
@@ -139,7 +139,7 @@ QString CalculatorCore::toHexFloatString(long double v, int fracDigits){
     if (intStr.isEmpty()) intStr = "0";
 
     QString fracStr;
-    for (int i = 0; i < fracDigits; i++) {
+    for (int i = 0; i < fracDigits; i++){
         frac *= 16;
         int digit = static_cast<int>(frac);
 
@@ -160,16 +160,21 @@ QString CalculatorCore::toHexFloatString(long double v, int fracDigits){
 }
 
 int CalculatorCore::precedence(const QString &op) const{
-    if (op == "!") return 4;
-    if (op == "^") return 3;
-    if (op == "*" || op == "/" || op == "%") return 2;
-    if (op == "+" || op == "-") return 1;
-    return 0;
+    if (op == "!" || op == "~") return 6;
+    if (op == "^") return 5;
+    if (op == "*" || op == "/" || op == "%") return 4;
+    if (op == "+" || op == "-") return 3;
+    if (op == "<<" || op == ">>") return 2;
+    if (op == "&") return 1;
+    if (op == "^^") return 0;
+    if (op == "|") return -1;
+    return -10;
 }
 
 bool CalculatorCore::isLeftAssociative(const QString &op) const{
-    if (op == "^") return false;  // 幂运算是右结合
-    return true; // + - * / 都是左结合
+    if (op == "^") return false;
+    if (op == "~") return false;
+    return true;
 }
 
 bool CalculatorCore::tokenize(const QString &expr, QVector<Token> &outTokens, QString &err) const{
@@ -181,10 +186,10 @@ bool CalculatorCore::tokenize(const QString &expr, QVector<Token> &outTokens, QS
 
     int i = 0;
     auto isHex = [](QChar c){
-        return c.isDigit() || (c >= 'A' && c <= 'F');
+        return c. isDigit() || (c >= 'A' && c <= 'F');
     };
 
-    while (i < expr.size()){
+    while (i < expr. size()){
         const QChar c = expr[i];
 
         if (c.isSpace()){
@@ -201,14 +206,35 @@ bool CalculatorCore::tokenize(const QString &expr, QVector<Token> &outTokens, QS
             i++;
             continue;
         }
-        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^'){
+        if (c == '!'){
+            outTokens.push_back({TokType:: UnaryPostOp, "!"});
+            i++;
+            continue;
+        }
+        if (c == '~'){
+            outTokens.push_back({TokType:: UnaryPreOp, "~"});
+            i++;
+            continue;
+        }
+        if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '&' || c == '|'){
             outTokens.push_back({TokType::Op, QString(c)});
             i++;
             continue;
         }
-        if (c == '!'){
-            outTokens.push_back({TokType::UnaryPostOp, QString(c)});
-            i++;
+        if (c == '^' || c == '<' || c == '>'){
+            int j = i + 1;
+            while (j < expr. size() && expr[j].isSpace()) j++;
+
+            if (j < expr.size() && expr[j] == c){
+                outTokens.push_back({TokType::Op, QString(c) + QString(c)});
+                i = j + 1;
+            } else if (c == '^'){
+                outTokens. push_back({TokType::Op, "^"});
+                i++;
+            } else {
+                err = QString("invalid operator '%1', did you mean '%1%1'?").arg(c);
+                return false;
+            }
             continue;
         }
         if (isHex(c) || c == '.'){
@@ -255,6 +281,15 @@ bool CalculatorCore::toRpn(const QVector<Token> &tokens, QVector<Token> &outRpn,
     for (const auto &t : tokens){
         if (t.type == TokType::Number){
             outRpn.push_back(t);
+
+            while (!opStack.isEmpty() && opStack.top().type == TokType::UnaryPreOp){
+                outRpn. push_back(opStack.pop());
+            }
+
+            continue;
+        }
+        if (t. type == TokType::UnaryPreOp){
+            opStack.push(t);
             continue;
         }
 
@@ -326,6 +361,23 @@ bool CalculatorCore::evalRpn(const QVector<Token> &rpn, long double &outValue, Q
             continue;
         }
 
+        if (t.type == TokType::UnaryPreOp){
+            if (st. size() < 1){
+                err = "not enough operands for bitwise NOT";
+                return false;
+            }
+            const long double a = st.pop();
+
+            if (t. text == "~"){
+                long long intVal = static_cast<long long>(a);
+                if (static_cast<long double>(intVal) != a){
+                    err = "bitwise NOT requires integer";
+                    return false;
+                }
+                st.push(static_cast<long double>(~intVal));
+            }
+            continue;
+        }
         if (t.type == TokType::Op){
             if (st.size() < 2){
                 err = "not enough operands";
@@ -363,11 +415,38 @@ bool CalculatorCore::evalRpn(const QVector<Token> &rpn, long double &outValue, Q
                     }
                 }
                 r = safePow(a , b);
+            }  else if (t.text == "&" || t.text == "|" || t.text == "^^" || t.text == "<<" || t.text == ">>") {
+                long long intA = static_cast<long long>(a);
+                long long intB = static_cast<long long>(b);
+
+                if (static_cast<long double>(intA) != a || static_cast<long double>(intB) != b){
+                    err = "bitwise operations require integers";
+                    return false;
+                }
+
+                if (t.text == "&") {
+                    r = static_cast<long double>(intA & intB);
+                } else if (t.text == "|") {
+                    r = static_cast<long double>(intA | intB);
+                } else if (t.text == "^^") {
+                    r = static_cast<long double>(intA ^ intB);
+                } else if (t.text == "<<") {
+                    if (intB < 0 || intB > 63) {
+                        err = "shift amount out of range";
+                        return false;
+                    }
+                    r = static_cast<long double>(intA << intB);
+                } else if (t. text == ">>") {
+                    if (intB < 0 || intB > 63) {
+                        err = "shift amount out of range";
+                        return false;
+                    }
+                    r = static_cast<long double>(intA >> intB);
+                }
             } else {
                 err = "unknown operator " + t.text;
                 return false;
             }
-
             st.push(r);
             continue;
         }
