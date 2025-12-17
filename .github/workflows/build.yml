@@ -1,0 +1,43 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+
+  build-windows:
+    name: Windows Release
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+ 
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.5.3'
+          host: 'windows'
+          arch: 'win64_mingw'
+
+      - name: Configure CMake
+        run: cmake -B build -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%QT_ROOT_DIR%
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Package
+        shell: cmd
+        run: |
+          mkdir release_package
+          copy build\HexCalculator.exe release_package\
+          windeployqt --release --compiler-runtime release_package\HexCalculator.exe
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HexCalculator-Windows
+          path: release_package
