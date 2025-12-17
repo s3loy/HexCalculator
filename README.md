@@ -25,25 +25,25 @@ Programming Coursework
 - [x] 平方 ^2
 - [x] 幂运算 ^n
 - [x] 阶乘 !
-- [ ] 左移位 <<
-- [ ] 右移位 >>
-- [ ] 按位与 &
-- [ ] 按位或 |
-- [ ] 按位异或 ^
-- [ ] 按位取反 ~
-- [ ] 正负切换 +/-
-- [ ] or anything else?
+- [x] 左移位 <<
+- [x] 右移位 >>
+- [x] 按位与 &
+- [x] 按位或 |
+- [x] 按位异或 ^
+- [x] 按位取反 ~
+- [x] or anything else?
 
 ## Implementation Detail
 ### Data structure
 ```cpp
 enum class TokType {
-    Number,     // hexadecimal
-    Op,         // operation
-    UnaryPostOp,//
-    LParen,     // (
-    RParen      // )
-};
+        Number,     // 数据 
+        Op,         // 单目运算符
+        UnaryPreOp, // 前缀运算符
+        UnaryPostOp,// 后缀运算符
+        LParen,     // 左括号
+        RParen      // 右括号
+    };
 struct Token {      // tokenization 
     TokType type;
     QString text;
