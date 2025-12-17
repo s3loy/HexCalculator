@@ -28,7 +28,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>HexCalculator</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LayoutDirection::LeftToRight</enum>
@@ -135,6 +135,9 @@
         <hintingpreference>PreferFullHinting</hintingpreference>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+      </property>
       <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
         <number>15</number>
@@ -165,6 +168,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>|OR</string>
          </property>
@@ -183,6 +197,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
          </property>
          <property name="text">
           <string>^XOR</string>
@@ -203,6 +228,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+         </property>
          <property name="text">
           <string>3</string>
          </property>
@@ -221,6 +257,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>1</string>
@@ -241,6 +288,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>)</string>
          </property>
@@ -259,6 +317,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>8</string>
@@ -279,6 +348,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>!</string>
          </property>
@@ -297,6 +377,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
          </property>
          <property name="text">
           <string>^2</string>
@@ -317,6 +408,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+         </property>
          <property name="text">
           <string>2</string>
          </property>
@@ -335,6 +437,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>6</string>
@@ -355,6 +468,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>^n</string>
          </property>
@@ -373,6 +497,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>5</string>
@@ -393,6 +528,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+         </property>
          <property name="text">
           <string>0</string>
          </property>
@@ -411,6 +557,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>E</string>
@@ -431,6 +588,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>~NOT</string>
          </property>
@@ -449,6 +617,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
          </property>
          <property name="text">
           <string>&gt;&gt;</string>
@@ -469,6 +648,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>%</string>
          </property>
@@ -487,6 +677,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>F</string>
@@ -507,6 +708,18 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>FiraCode Nerd Font</family>
+           <pointsize>18</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 84, 16);
+selection-background-color: rgb(127, 48, 1)</string>
+         </property>
          <property name="text">
           <string>=</string>
          </property>
@@ -525,6 +738,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>9</string>
@@ -545,6 +769,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+         </property>
          <property name="text">
           <string>C</string>
          </property>
@@ -563,6 +798,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>B</string>
@@ -583,6 +829,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>-</string>
          </property>
@@ -602,6 +859,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>/</string>
          </property>
@@ -620,6 +888,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
          </property>
          <property name="text">
           <string>+</string>
@@ -642,11 +921,14 @@
          </property>
          <property name="font">
           <font>
-           <family>Noto Sans</family>
-           <pointsize>17</pointsize>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
            <bold>false</bold>
            <hintingpreference>PreferFullHinting</hintingpreference>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>A</string>
@@ -667,6 +949,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>*</string>
          </property>
@@ -685,6 +978,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>7</string>
@@ -705,6 +1009,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>&amp;&amp;AND</string>
          </property>
@@ -723,6 +1038,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
          </property>
          <property name="text">
           <string>&lt;&lt;</string>
@@ -743,6 +1069,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
+         </property>
          <property name="text">
           <string>(</string>
          </property>
@@ -761,6 +1098,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>4</string>
@@ -781,6 +1129,17 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+         </property>
          <property name="text">
           <string>D</string>
          </property>
@@ -799,6 +1158,19 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>URW Bookman [UKWN]</family>
+           <pointsize>11</pointsize>
+           <italic>true</italic>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 0, 0);
+selection-background-color: rgb(116, 0, 0);</string>
          </property>
          <property name="text">
           <string>DEL</string>
@@ -819,8 +1191,35 @@
            <height>60</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>URW Bookman [UKWN]</family>
+           <pointsize>24</pointsize>
+           <italic>true</italic>
+           <bold>false</bold>
+           <kerning>true</kerning>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(223, 106, 23);
+background-color: rgb(255, 170, 0);
+color: rgb(0, 0, 0);</string>
+         </property>
          <property name="text">
           <string>AC</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -837,6 +1236,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
          </property>
          <property name="text">
           <string>00</string>
@@ -856,6 +1266,17 @@
            <width>70</width>
            <height>60</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Source Code Pro Medium</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+           <hintingpreference>PreferDefaultHinting</hintingpreference>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 123, 199);</string>
          </property>
          <property name="text">
           <string>.</string>
