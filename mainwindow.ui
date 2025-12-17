@@ -24,7 +24,6 @@
   </property>
   <property name="font">
    <font>
-    <fontweight>Medium</fontweight>
    </font>
   </property>
   <property name="windowTitle">
