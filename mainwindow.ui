@@ -23,8 +23,7 @@
    </size>
   </property>
   <property name="font">
-   <font>
-   </font>
+   <font/>
   </property>
   <property name="windowTitle">
    <string>HexCalculator</string>
@@ -176,7 +175,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>|OR</string>
@@ -206,7 +220,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>^XOR</string>
@@ -236,7 +265,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>3</string>
@@ -266,7 +310,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>1</string>
@@ -296,7 +355,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>)</string>
@@ -326,7 +400,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>8</string>
@@ -356,7 +445,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>!</string>
@@ -386,7 +490,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>^2</string>
@@ -416,7 +535,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>2</string>
@@ -446,7 +580,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>6</string>
@@ -476,7 +625,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>^n</string>
@@ -506,7 +670,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>5</string>
@@ -536,7 +715,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>0</string>
@@ -566,7 +760,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>E</string>
@@ -596,7 +805,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>~NOT</string>
@@ -626,7 +850,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>&gt;&gt;</string>
@@ -656,7 +895,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>%</string>
@@ -686,7 +940,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>F</string>
@@ -716,8 +985,22 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 84, 16);
-selection-background-color: rgb(127, 48, 1)</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(255, 84, 16);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 132, 25);
+}
+
+QPushButton:pressed {
+    background-color: rgb(127, 48, 1);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>=</string>
@@ -747,7 +1030,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>9</string>
@@ -777,7 +1075,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>C</string>
@@ -807,7 +1120,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>B</string>
@@ -837,7 +1165,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>-</string>
@@ -867,7 +1210,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>/</string>
@@ -897,7 +1255,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>+</string>
@@ -927,7 +1300,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>A</string>
@@ -957,7 +1345,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>*</string>
@@ -987,7 +1390,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>7</string>
@@ -1017,7 +1435,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string>background-color: rgb(0, 123, 199);</string>
+          <string>QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>&amp;&amp;AND</string>
@@ -1047,7 +1480,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>&lt;&lt;</string>
@@ -1077,7 +1525,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>(</string>
@@ -1107,7 +1570,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>4</string>
@@ -1137,7 +1615,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>D</string>
@@ -1168,8 +1661,22 @@ selection-background-color: rgb(127, 48, 1)</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 0, 0);
-selection-background-color: rgb(116, 0, 0);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 80, 80);
+}
+
+QPushButton:pressed {
+    background-color: rgb(180, 0, 0);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>DEL</string>
@@ -1207,9 +1714,22 @@ selection-background-color: rgb(116, 0, 0);</string>
           <bool>false</bool>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(223, 106, 23);
-background-color: rgb(255, 170, 0);
-color: rgb(0, 0, 0);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(255, 170, 0);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 176, 17);
+}
+
+QPushButton:pressed {
+    background-color: rgb(223, 106, 23);;  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>AC</string>
@@ -1245,7 +1765,22 @@ color: rgb(0, 0, 0);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">selection-background-color: rgb(26, 26, 26);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(101, 101, 101);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(120, 120, 120);
+}
+
+QPushButton:pressed {
+    background-color: rgb(60, 60, 60);   
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>00</string>
@@ -1275,7 +1810,22 @@ color: rgb(0, 0, 0);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 123, 199);</string>
+          <string notr="true">QPushButton {
+    background-color: rgb(0, 170, 255);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+QPushButton:hover {
+    background-color: rgb(6, 201, 255);
+}
+
+QPushButton:pressed {
+    background-color: rgb(0, 114, 213);  
+    padding-top: 3px;                    
+    padding-left: 3px;
+}</string>
          </property>
          <property name="text">
           <string>.</string>
